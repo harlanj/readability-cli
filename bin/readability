@@ -46,6 +46,8 @@ if(typeof url!='string' || !url.match(/^https?:\/\//)) return error(url+" is an 
 
 console.log(url);
 read(url, function(err, article, meta) {
+  if (err) return console.log('\n' + clc.red('Error reading content'));
+
   // The title of the page.
   console.log();
   console.log(styles.h1(article.title));
